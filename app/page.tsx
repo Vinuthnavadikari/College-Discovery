@@ -28,8 +28,8 @@ export default function Home() {
   });
 
   return (
-    <main className="p-10 bg-gray-50 min-h-screen">
-      <h1 className="text-4xl font-bold mb-8 text-center">
+    <main className="p-10 bg-slate-100 min-h-screen">
+     <h1 className="text-5xl font-extrabold text-gray-900 mb-8 text-center">
         College Discovery Platform
       </h1>
 
@@ -108,7 +108,7 @@ export default function Home() {
             key={college.id}
             href={`/college/${college.id}`}
           >
-            <div className="border rounded-lg p-6 shadow-lg hover:shadow-xl cursor-pointer transition-shadow bg-white h-full flex flex-col justify-between">
+            <div className="border border-gray-300 rounded-xl p-6 shadow-lg bg-white ...">
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">
                   {college.name}
