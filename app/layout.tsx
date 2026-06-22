@@ -28,16 +28,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans`}
       >
-        <nav className="bg-white shadow-md p-4">
-          <div className="container mx-auto flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold">
-              College Discovery
-            </Link>
-            <Link href="/compare" className="text-lg font-medium hover:text-blue-600">
-              Compare
-            </Link>
-          </div>
-        </nav>
+       <nav className="bg-white shadow-md p-4">
+  <div className="container mx-auto flex justify-between items-center">
+   <Link href="/" className="text-xl font-bold text-black">
+  College Discovery
+</Link>
+
+<Link
+  href="/compare"
+  className="text-lg font-medium text-black hover:text-blue-600"
+>
+  Compare
+</Link>
+  </div>
+</nav>
         {children}
       </body>
     </html>

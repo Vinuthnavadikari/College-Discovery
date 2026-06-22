@@ -43,18 +43,18 @@ export default function Home() {
       <div className="mb-8 p-6 bg-white rounded-lg shadow-md">
         <div className="grid md:grid-cols-4 gap-6">
           <input
-            type="text"
-            placeholder="Search by name..."
-            className="border p-3 rounded-lg"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+  type="text"
+  placeholder="Search by name..."
+  className="border p-3 rounded-lg col-span-4 md:col-span-1 text-black placeholder:text-gray-500"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+/>
 
           <select
-            className="border p-3 rounded-lg bg-white"
-            value={stateFilter}
-            onChange={(e) => setStateFilter(e.target.value)}
-          >
+  className="border p-3 rounded-lg bg-white text-black"
+  value={stateFilter}
+  onChange={(e) => setStateFilter(e.target.value)}
+>
             <option value="">All States</option>
 
             {states.map((state) => (
