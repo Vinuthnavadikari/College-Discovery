@@ -1,24 +1,42 @@
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { fetchCollegeById } from "@/lib/data";
 
-export async function GET(
-  request: NextRequest,
-  context: { params: Promise<{ id: string }> }
-) {
-  const { id } = await context.params;
+export default async function CollegeDetails({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
-  const college = await prisma.college.findUnique({
-    where: {
-      id,
-    },
-  });
+  const college = await fetchCollegeById(id);
 
   if (!college) {
-    return NextResponse.json(
-      { error: "College not found" },
-      { status: 404 }
+    return (
+      <div className="p-10">
+        College not found
+      </div>
     );
   }
 
-  return NextResponse.json(college);
+  return (
+    <main className="p-10">
+      <h1 className="text-4xl font-bold mb-6">
+        {college.name}
+      </h1>
+
+      <div className="border rounded-lg p-6 shadow">
+        <p><b>Location:</b> {college.location}</p>
+        <p><b>State:</b> {college.state}</p>
+        <p><b>Fees:</b> ₹{college.fees}</p>
+        <p><b>Rating:</b> ⭐ {college.rating}</p>
+        <p><b>Average Package:</b> {college.avgPackage} LPA</p>
+        <p><b>Highest Package:</b> {college.highestPackage} LPA</p>
+        <p><b>Placement Rate:</b> {college.placementRate}%</p>
+
+        <div className="mt-4">
+          <b>Description:</b>
+          <p>{college.description}</p>
+        </div>
+      </div>
+    </main>
+  );
 }
